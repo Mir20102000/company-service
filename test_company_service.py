@@ -1,41 +1,41 @@
 import pytest
-from app.api.models import ClubIn, ClubOut, ClubUpdate
+from app.api.models import CompanyIn, CompanyOut, CompanyUpdate
 
-club = ClubIn(
-    name='PSG',
-    country='France',
-    trophies=12
+company = CompanyIn(
+    name='Samsung',
+    field='Technology',
+    year=1969
 )
 
 
-def test_create_club(club: ClubIn = club):
-    assert dict(club) == {'name': club.name,
-                          'country': club.country,
-                          'trophies': club.trophies}
+def test_create_company(company: CompanyIn = company):
+    assert dict(company) == {'name': company.name,
+                          'field': company.field,
+                          'year': company.year}
 
 
-def test_update_cast_title(club: ClubIn = club):
-    club_upd = ClubOut(
-        name='PSG',
-        country=club.country,
-        trophies=club.trophies,
+def test_update_cast_title(company: CompanyIn = company):
+    company_upd = CompanyOut(
+        name='Samsung',
+        field=company.field,
+        year=company.year,
         id=1
     )
-    assert dict(club_upd) == {'name': club.name,
-                              'country': club.country,
-                              'trophies': club.trophies,
-                              'id': club_upd.id
+    assert dict(company_upd) == {'name': company.name,
+                              'field': company.field,
+                              'year': company.year,
+                              'id': company_upd.id
                               }
 
 
-def test_update_cast_genre(club: ClubIn = club):
-    club_upd = ClubOut(
-        name=club.name,
-        country=club.country,
-        trophies=club.trophies,
+def test_update_cast_genre(company: CompanyIn = company):
+    company_upd = CompanyOut(
+        name=company.name,
+        country=company.field,
+        trophies=company.year,
         id=1
     )
-    assert dict(club_upd) == {'name': club.name,
-                              'country': club.country,
-                              'trophies': club.trophies,
-                              'id': club_upd.id}
+    assert dict(company_upd) == {'name': company.name,
+                              'field': company.field,
+                              'year': company.year,
+                              'id': company_upd.id}
