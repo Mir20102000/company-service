@@ -31,8 +31,8 @@ def test_update_cast_title(company: CompanyIn = company):
 def test_update_cast_genre(company: CompanyIn = company):
     company_upd = CompanyOut(
         name=company.name,
-        country=company.field,
-        trophies=company.year,
+        field=company.field,
+        year=company.year,
         id=1
     )
     assert dict(company_upd) == {'name': company.name,
